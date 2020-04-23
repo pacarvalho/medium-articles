@@ -22,14 +22,14 @@ classdef OpenAIWrapper < rl.env.MATLABEnvironment
             this = this@rl.env.MATLABEnvironment(ObservationInfo,ActionInfo);
         end
         
-        % Apply system dynamics and simulates the environment with the 
+        % Apply system dynamics and simulate the environment with the 
         % given action for one step.
         function [Observation,Reward,IsDone,LoggedSignals] = step(this,Action)
             % Call OpenAI Step Function
-            result = this.open_env.step(int16(Action));
+            result = this.open_env.step(int16(Action)); % Type casting here!
             
             % Collect Results
-            Observation = double(result{1})';
+            Observation = double(result{1})'; % Type casting here!
             Reward = result{2};
             IsDone = result{3};
             LoggedSignals = [];
