@@ -39,7 +39,7 @@ classdef OpenAIWrapper < rl.env.MATLABEnvironment
         % Reset environment to initial state and output initial observation
         function InitialObservation = reset(this)
             result = this.open_env.reset();
-            InitialObservation = double(result)';
+            InitialObservation = double(result)'; % Type casting here!
         end
     end
 end
